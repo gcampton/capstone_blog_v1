@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+<main>
+    <section class="container-sm pt-50">
+        <form action="/blog-post" method="POST" class="" style="margin-top: 20px;">
+            <div class="mb-3">
+                <input type="text" class="form-control" id="title" name="title" placeholder="Post Title">
+            </div>
+            <div class="mb-3">
+                <input type="text" class="form-control" id="author" name="author" placeholder="Author name">
+            </div>
+            <div class="mb-3">
+                <textarea class="form-control" id="content" name="content" rows="3" placeholder="Blog post"></textarea>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-secondary btn-lg" type="submit" value="Submit">SUBMIT</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<%- include('partials/footer.ejs') %>

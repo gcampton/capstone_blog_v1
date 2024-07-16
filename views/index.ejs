@@ -1,0 +1,20 @@
+<%- include('partials/header.ejs') %>
+<main>
+    <section class="container-sm" style="margin-top: 20px;">
+        <% if (locals.data) { %>
+            <% data.forEach(element => { %>
+                <h1 class="title"><%= element.title %></h1>
+                <div class="author">
+                    <%= element.author %>
+                </div>
+                <div class="content">
+                    <%= element.content %>
+                </div>
+            <% }); %>
+        <% } else { %>
+            <h1 class="title">No Posts Yet - Navigate to Post</h1>
+        <% } %>
+    </section>
+</main>
+
+<%- include('partials/footer.ejs') %>
