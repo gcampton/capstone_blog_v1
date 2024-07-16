@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
-// can only store 1 post - database disabled.
+// post #1
 var postJSON = [
     {
         title: "The best blog ever",
@@ -22,23 +22,17 @@ app.get("/", (req, res) => {
     res.render("index.ejs", { data: postJSON });
 });
 
-// New Blogpost
+// New Blogpost Form
 app.get("/blog-post", (req, res) => {
     res.render("blog-post.ejs");
 });
 
-// Success / Fail message
+// Save to blog post obj
 app.post("/blog-post", (req, res) => {
     postJSON.push(req.body);
-    // postJSON = {
-    //     title: req.body.title,
-    //     author: req.body.author,
-    //     content: req.body.content
-    // };
     res.render("index.ejs", {
         data: postJSON,
     });
-    // res.redirect("/");
 });
 
 app.listen(port, () => {
