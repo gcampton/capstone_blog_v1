@@ -9,7 +9,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 // post #1
-var postJSON = [
+var postObj = [
     {
         title: "The best blog ever",
         author: "Shitshow Sandwich",
@@ -19,7 +19,7 @@ var postJSON = [
 
 // Homepage - display all blogs
 app.get("/", (req, res) => {
-    res.render("index.ejs", { data: postJSON });
+    res.render("index.ejs", { data: postObj });
 });
 
 // New Blogpost Form
@@ -29,9 +29,9 @@ app.get("/blog-post", (req, res) => {
 
 // Save to blog post obj
 app.post("/blog-post", (req, res) => {
-    postJSON.push(req.body);
+    postObj.push(req.body);
     res.render("index.ejs", {
-        data: postJSON,
+        data: postObj,
     });
 });
 
